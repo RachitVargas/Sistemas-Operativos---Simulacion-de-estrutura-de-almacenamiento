@@ -22,6 +22,24 @@ def main():
             if opcion == 1:
                 megas_inicial = int(input("Ingrese la cantidad de megas inicial: "))
                 n_dias = int(input("Ingrese la cantidad de dias: "))
+                dias = n_dias
+                almacenamiento_total = 0
+                for i in range(n_dias):
+                    print("dia " + str(i+1) + ", cantidad de almacenamiento disponible: " +\
+                          str(megas_inicial) + " megas; cantidad de dias faltantes: " + str(n_dias-1))
+                    
+                    megas_dia = int(input("Ingrese la cantidad de megas que almacenara el dia " +\
+                                          str(i+1) + ": "))
+                    
+                    if megas_dia <= megas_inicial:
+                        almacenamiento_total += megas_dia
+                        megas_inicial = megas_inicial - megas_dia
+                        n_dias -= 1
+                    else:
+                        print("La cantidad de megas solicitadas excede el almacenamiento disponible")
+                        
+                print("En " + str(dias) + " dias se almaceno " + str(almacenamiento_total) +\
+                      " megas y sobro " + str(megas_inicial) + " megas disponibles")
                 
             elif opcion == 2:
                 print("Muchas gracias por usar el simulador.")
